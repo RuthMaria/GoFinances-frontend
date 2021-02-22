@@ -1,10 +1,11 @@
 <h1 align="center">
   <a href="https://github.com/csorlandi/nodejs-concepts">
-    <img alt="Logo NodeJS" src="./assets/logo.svg" width="400px" />
+    <img alt="Logo NodeJS" src="./assets/logo.svg" width="500px" />
   </a>
 </h1>
 
 <p align="center">
+  <a href="#execution">Preview</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#technologies">Technologies Used</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#run">How to run the API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -34,17 +35,20 @@ Services:
 * Delete transaction
 * Read file and create transaction
 
+<a id="execution"></a><br>
+
+ ## :tv: Preview
+
+![video](./src/assets/video.gif)
+
+<br>
 
 <a id="technologies"></a><br>
 
 ## ⚒️ Technologies Used
-  * Node.js
+  * React.js
   * TypeScript
-  * Express
-  * Docker
-  * Postgres
-  * TypeORM
-  * Multer
+  * Axios
 
 
 <a id="run"></a><br>
@@ -55,12 +59,7 @@ Services:
 
 ### :small_orange_diamond: Requirements
 
-* [NodeJS in its LTS version](https://nodejs.org/en/download/)
-* [Visual Studio Code](https://code.visualstudio.com/download)
-* [Dbeaver](https://dbeaver.io/download/)
-* [Docker](https://www.docker.com/get-started)
-* [Docker installation guide](https://www.notion.so/Instalando-Docker-6290d9994b0b4555a153576a1d97bee2)
-* [yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+* [Application backend](https://github.com/RuthMaria/GoBarber-backend)
 
 <br>
 
@@ -68,36 +67,15 @@ Services:
 - Clone this repository
 
 ```
-git clone https://github.com/RuthMaria/GoFinances-backend.git
+git clone https://github.com/RuthMaria/GoFinances-frontend.git
 ```
-
-- Install the postgres image on your docker container using port 5432 or another port
-
-```
-docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
-```
-
-- Start postgres image
-```
-docker start gostack_postgres
-```
-
-- Open the Dbeaver and create a new connection with Postgres. Change the port to 5432 and in the password, you type "docker", as you have defined above when create a postgres image on docker.
-
-- After that, create a new database in yout postgres connection inside Dbeaver. Write "gostack_desafio06" in the database name. For run the tests, create another database call "gostack_desafio06_test".
-
 - Install dependencies
 
 ```
 yarn
 ```
 
-- Create the migrations
-```
-yarn typeorm migration:run
-```
-
-- Run the API
+- Run the project
 
 ```
 yarn dev:server

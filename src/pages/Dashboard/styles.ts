@@ -42,6 +42,11 @@ export const Card = styled.div`
   }
 `;
 
+export const Title = styled.h1`
+  font-size: 48px;
+  color: #3a3a3a;
+`;
+
 export const TableContainer = styled.section`
   margin-top: 64px;
 
