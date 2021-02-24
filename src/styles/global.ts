@@ -14,10 +14,27 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font: 16px "Poppins", sans-serif;
+    font: 1rem "Poppins", sans-serif;
   }
 
   button {
     cursor: pointer;
+  }
+
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media(max-width: 1080){
+    html{
+        font-size: 93.75%;
+    }
+  }
+
+  @media(max-width: 720px){
+    html{
+        font-size: 87.5%;
+    }
   }
 `;

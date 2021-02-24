@@ -1,13 +1,13 @@
 <h1 align="center">
   <a href="https://github.com/csorlandi/nodejs-concepts">
-    <img alt="Logo NodeJS" src="./assets/logo.svg" width="500px" />
+    <img alt="Logo NodeJS" src="./src/assets/logo.svg" width="500px" />
   </a>
 </h1>
 
 <p align="center">
   <a href="#execution">Preview</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#technologies">Technologies Used</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#run">How to run the API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#run">How to run the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#license">License</a>
 </p>
@@ -26,7 +26,7 @@
 ## :books: About
 
 
-It's an API that makes financial transactions.
+It's an application that makes financial transactions.
 
 Services:
 
@@ -59,7 +59,7 @@ Services:
 
 ### :small_orange_diamond: Requirements
 
-* [Application backend](https://github.com/RuthMaria/GoBarber-backend)
+* [API](https://github.com/RuthMaria/GoFinances-backend)
 
 <br>
 
@@ -78,7 +78,7 @@ yarn
 - Run the project
 
 ```
-yarn dev:server
+yarn start
 ```
 
 - Run the tests

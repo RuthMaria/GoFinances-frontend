@@ -7,11 +7,12 @@ import total from '../../assets/total.svg';
 import api from '../../services/api';
 
 import Header from '../../components/Header';
-
+import Card from '../../components/Card';
+import Table from '../../components/Table';
 import formatValue from '../../utils/formatValue';
 import formatDate from '../../utils/formatDate';
 
-import { Container, CardContainer, Card, TableContainer } from './styles';
+import { Container, CardContainer } from './styles';
 
 interface Transaction {
   id: string;
@@ -74,54 +75,33 @@ const Dashboard: React.FC = () => {
       <Header />
       <Container>
         <CardContainer>
-          <Card>
-            <header>
-              <p>Entradas</p>
-              <img src={income} alt="Income" />
-            </header>
-            <h1 data-testid="balance-income">{balance.income}</h1>
-          </Card>
-          <Card>
-            <header>
-              <p>Saídas</p>
-              <img src={outcome} alt="Outcome" />
-            </header>
-            <h1 data-testid="balance-outcome">{balance.outcome}</h1>
-          </Card>
-          <Card total>
-            <header>
-              <p>Total</p>
-              <img src={total} alt="Total" />
-            </header>
-            <h1 data-testid="balance-total">{balance.total}</h1>
-          </Card>
+          <Card
+            title="Entradas"
+            image={income}
+            legend="Income"
+            test="balance-income"
+            income={balance.income}
+          />
+
+          <Card
+            title="Saídas"
+            image={outcome}
+            legend="Outcome"
+            test="balance-outcome"
+            income={balance.outcome}
+          />
+
+          <Card
+            title="Total"
+            image={total}
+            legend="Total"
+            test="balance-total"
+            income={balance.total}
+            total="total"
+          />
         </CardContainer>
 
-        <TableContainer>
-          <table>
-            <thead>
-              <tr>
-                <th>Título</th>
-                <th>Preço</th>
-                <th>Categoria</th>
-                <th>Data</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {transactions.map(transaction => (
-                <tr key={transaction.id}>
-                  <td className="title">{transaction.title}</td>
-                  <td className={transaction.type}>
-                    {transaction.formattedValue}
-                  </td>
-                  <td>{transaction.category.title}</td>
-                  <td>{transaction.formattedDate}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </TableContainer>
+        <Table transactions={transactions} />
       </Container>
     </>
   );
