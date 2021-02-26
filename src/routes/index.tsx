@@ -4,14 +4,13 @@ import { Switch, Route } from 'react-router-dom';
 
 import Dashboard from '../pages/Dashboard';
 import Import from '../pages/Import';
-import { CreateTransactionProvider } from '../context/CreateTransactionContext';
+import CreateTransaction from '../pages/CreateTransaction';
 
 const Routes: React.FC = () => (
   <Switch>
-    <CreateTransactionProvider>
-      <Route path="/" exact component={Dashboard} />
-      <Route path="/import" component={Import} />
-    </CreateTransactionProvider>
+    <Route path="/" exact component={Dashboard} />
+    <Route path="/import" component={Import} />
+    <Route path="/create-transaction" component={CreateTransaction} />
   </Switch>
 );
 

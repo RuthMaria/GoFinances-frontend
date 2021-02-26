@@ -60,5 +60,16 @@ export const TableContainer = styled.section`
     td:last-child {
       border-radius: 0 8px 8px 0;
     }
+
+    td.exit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .close:hover {
+        color: red;
+        cursor: pointer;
+      }
+    }
   }
 `;

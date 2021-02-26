@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Container } from './styles';
@@ -20,6 +19,12 @@ const Header: React.FC<HeaderProps> = ({ size = 'large' }: HeaderProps) => {
         <nav>
           <Link to="/" className={pathname === '/' ? 'list' : ''}>
             Listagem
+          </Link>
+          <Link
+            to="/create-transaction"
+            className={pathname === '/create-transaction' ? 'create' : ''}
+          >
+            Nova transação
           </Link>
           <Link to="/import" className={pathname === '/import' ? 'import' : ''}>
             Importar

@@ -35,7 +35,8 @@ export const Container = styled.div<ContainerProps>`
         }
 
         &.list,
-        &.import {
+        &.import,
+        &.create {
           border-bottom: 2px solid #ff872c;
         }
       }

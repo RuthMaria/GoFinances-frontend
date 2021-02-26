@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
@@ -11,9 +11,7 @@ import Card from '../../components/Card';
 import Table from '../../components/Table';
 import formatValue from '../../utils/formatValue';
 import formatDate from '../../utils/formatDate';
-import CreateTransaction from '../CreateTransaction';
 import { Container, CardContainer } from './styles';
-import { CreateTransactionContext } from '../../context/CreateTransactionContext';
 
 interface Transaction {
   id: string;
@@ -40,7 +38,6 @@ interface ResponseDTO {
 const Dashboard: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [balance, setBalance] = useState<Balance>({} as Balance);
-  const { activateModal } = useContext(CreateTransactionContext);
 
   useEffect(() => {
     async function loadTransactions(): Promise<void> {
@@ -74,7 +71,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      {activateModal && <CreateTransaction />}
       <Header />
       <Container>
         <CardContainer>

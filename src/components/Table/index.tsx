@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { CreateTransactionContext } from '../../context/CreateTransactionContext';
+import React from 'react';
+import { BsTrash } from 'react-icons/bs';
 import { TableContainer } from './styles';
 
 interface Transaction {
@@ -16,8 +16,6 @@ interface Request {
 }
 
 const Table: React.FC<Request> = ({ transactions }: Request) => {
-  const { activeModal } = useContext(CreateTransactionContext);
-
   return (
     <TableContainer>
       <table>
@@ -27,11 +25,6 @@ const Table: React.FC<Request> = ({ transactions }: Request) => {
             <th>Preço</th>
             <th>Categoria</th>
             <th>Data</th>
-            <th>
-              <button type="button" onClick={activeModal}>
-                Nova transação
-              </button>
-            </th>
           </tr>
         </thead>
 
@@ -41,8 +34,10 @@ const Table: React.FC<Request> = ({ transactions }: Request) => {
               <td className="title">{transaction.title}</td>
               <td className={transaction.type}>{transaction.formattedValue}</td>
               <td>{transaction.category.title}</td>
-              <td>{transaction.formattedDate}</td>
-              <td>exluir</td>
+              <td className="exit">
+                {transaction.formattedDate}
+                <BsTrash size={20} className="close" />
+              </td>
             </tr>
           ))}
         </tbody>

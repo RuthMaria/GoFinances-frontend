@@ -1,12 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { Modal } from './styles';
+import React, { useState } from 'react';
+import { Container } from './styles';
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
-import { CreateTransactionContext } from '../../context/CreateTransactionContext';
 import api from '../../services/api';
+import Header from '../../components/Header';
 
 const CreateTransaction: React.FC = () => {
-  const { closeModal } = useContext(CreateTransactionContext);
   const [title, setTitle] = useState('');
   const [value, setValue] = useState(0);
   const [type, setType] = useState('');
@@ -26,6 +25,13 @@ const CreateTransaction: React.FC = () => {
     setStylesIncome('disableIncome');
   };
 
+  function reset() {
+    setTitle('');
+    setValue(0);
+    setType('');
+    setCategory('');
+  }
+
   async function handleSaveTransaction(): Promise<void> {
     await api.post('/transactions', {
       title,
@@ -34,12 +40,14 @@ const CreateTransaction: React.FC = () => {
       category,
     });
 
-    closeModal();
+    reset();
   }
 
   return (
-    <Modal>
-      <div>
+    <>
+      <Header size="small" />
+
+      <Container>
         <h1>Cadastro</h1>
         <input
           type="text"
@@ -72,20 +80,12 @@ const CreateTransaction: React.FC = () => {
           placeholder="Categoria"
           onChange={e => setCategory(e.target.value)}
         />
-        <div>
-          <button type="button" className="exit" onClick={closeModal}>
-            Cancelar
-          </button>
-          <button
-            type="button"
-            className="save"
-            onClick={handleSaveTransaction}
-          >
-            salvar
-          </button>
-        </div>
-      </div>
-    </Modal>
+
+        <button type="button" className="save" onClick={handleSaveTransaction}>
+          salvar
+        </button>
+      </Container>
+    </>
   );
 };
 
