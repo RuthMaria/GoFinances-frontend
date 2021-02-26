@@ -49,6 +49,7 @@ Services:
   * React.js
   * TypeScript
   * Axios
+  * Styled components
 
 
 <a id="run"></a><br>

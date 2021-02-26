@@ -11,7 +11,7 @@ import Card from '../../components/Card';
 import Table from '../../components/Table';
 import formatValue from '../../utils/formatValue';
 import formatDate from '../../utils/formatDate';
-
+import CreateTransaction from '../CreateTransaction';
 import { Container, CardContainer } from './styles';
 
 interface Transaction {
@@ -72,6 +72,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
+      <CreateTransaction />
       <Header />
       <Container>
         <CardContainer>
