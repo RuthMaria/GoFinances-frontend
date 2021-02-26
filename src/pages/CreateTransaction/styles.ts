@@ -28,6 +28,7 @@ export const Modal = styled.section`
       font-weight: normal;
       text-align: left;
       margin: 50px 0 40px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     input {
@@ -65,6 +66,24 @@ export const Modal = styled.section`
         img {
           margin-right: 18px;
         }
+      }
+
+      .activeIncome {
+        background-color: #dcfaea;
+        border: 1px solid #12a454;
+      }
+
+      .disableIncome:hover {
+        border: 1px solid #12a454;
+      }
+
+      .activeOutcome {
+        background-color: #fae3e3;
+        border: 1px solid #c53030;
+      }
+
+      .disableOutcome:hover {
+        border: 1px solid #c53030;
       }
     }
 

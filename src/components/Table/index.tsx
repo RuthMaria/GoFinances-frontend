@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CreateTransactionContext } from '../../context/CreateTransactionContext';
 import { TableContainer } from './styles';
 
 interface Transaction {
@@ -15,6 +16,8 @@ interface Request {
 }
 
 const Table: React.FC<Request> = ({ transactions }: Request) => {
+  const { activeModal } = useContext(CreateTransactionContext);
+
   return (
     <TableContainer>
       <table>
@@ -25,7 +28,9 @@ const Table: React.FC<Request> = ({ transactions }: Request) => {
             <th>Categoria</th>
             <th>Data</th>
             <th>
-              <button type="button">Nova transação</button>
+              <button type="button" onClick={activeModal}>
+                Nova transação
+              </button>
             </th>
           </tr>
         </thead>
