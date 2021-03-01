@@ -57,7 +57,7 @@ export const Container = styled.section`
 
     .activeIncome {
       background-color: #dcfaea;
-      border: 1px solid #12a454;
+      border: 1.5px solid #12a454;
     }
 
     .disableIncome:hover {
@@ -70,7 +70,7 @@ export const Container = styled.section`
     }
 
     .disableOutcome:hover {
-      border: 1px solid #c53030;
+      border: 1.5px solid #c53030;
     }
   }
 

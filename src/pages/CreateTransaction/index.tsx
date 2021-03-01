@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container } from './styles';
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
 import api from '../../services/api';
 import Header from '../../components/Header';
+import { DashboardContext } from '../../contexts/DashboardContext';
 
 const CreateTransaction: React.FC = () => {
   const [title, setTitle] = useState('');
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState('');
   const [type, setType] = useState('');
   const [category, setCategory] = useState('');
   const [stylesIncome, setStylesIncome] = useState('disableIncome');
   const [stylesOutcome, setStylesOutcome] = useState('disableOutcome');
+  const { createTransaction } = useContext(DashboardContext);
 
   const handleIncome = () => {
     setType('income');
@@ -27,20 +29,23 @@ const CreateTransaction: React.FC = () => {
 
   function reset() {
     setTitle('');
-    setValue(0);
+    setValue('');
     setType('');
     setCategory('');
+    setStylesIncome('disableIncome');
+    setStylesOutcome('disableOutcome');
   }
 
   async function handleSaveTransaction(): Promise<void> {
     await api.post('/transactions', {
       title,
-      value,
+      value: Number(value),
       type,
       category,
     });
 
     reset();
+    createTransaction(Math.random());
   }
 
   return (
@@ -52,12 +57,14 @@ const CreateTransaction: React.FC = () => {
         <input
           type="text"
           placeholder="Nome"
+          value={title}
           onChange={e => setTitle(e.target.value)}
         />
         <input
           type="number"
           placeholder="Preço"
-          onChange={e => setValue(Number(e.target.value))}
+          value={value}
+          onChange={e => setValue(e.target.value)}
         />
 
         <div>
@@ -78,6 +85,7 @@ const CreateTransaction: React.FC = () => {
         <input
           type="text"
           placeholder="Categoria"
+          value={category}
           onChange={e => setCategory(e.target.value)}
         />
 

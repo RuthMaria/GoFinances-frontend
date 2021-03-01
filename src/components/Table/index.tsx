@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsTrash } from 'react-icons/bs';
 import { TableContainer } from './styles';
+import api from '../../services/api';
+import { DashboardContext } from '../../contexts/DashboardContext';
 
 interface Transaction {
   id: string;
@@ -15,7 +17,14 @@ interface Request {
   transactions: Transaction[];
 }
 
-const Table: React.FC<Request> = ({ transactions }: Request) => {
+const Table: React.FC = () => {
+  const { transactions, removeTransaction } = useContext(DashboardContext);
+
+  async function handleRemoveTransaction(id: string): Promise<void> {
+    await api.delete(`transactions/${id}`);
+    removeTransaction(id);
+  }
+
   return (
     <TableContainer>
       <table>
@@ -36,7 +45,12 @@ const Table: React.FC<Request> = ({ transactions }: Request) => {
               <td>{transaction.category.title}</td>
               <td className="exit">
                 {transaction.formattedDate}
-                <BsTrash size={20} className="close" />
+
+                <BsTrash
+                  size={20}
+                  className="close"
+                  onClick={() => handleRemoveTransaction(transaction.id)}
+                />
               </td>
             </tr>
           ))}

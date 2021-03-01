@@ -50,11 +50,12 @@ Services:
   * TypeScript
   * Axios
   * Styled components
+  * Context API
 
 
 <a id="run"></a><br>
 
-## 🚀 How to run the API
+## 🚀 How to run the application
 
 <br>
 
